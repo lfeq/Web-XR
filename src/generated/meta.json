@@ -1,0 +1,20 @@
+{
+  "sceneName": "Sandbox",
+  "meta": {
+    "title": "Collaborative Sandbox",
+    "description": "Networking, WebXR, Drag & Duplicate",
+    "image": "include/Sandbox.jpg"
+  },
+  "absolutePath": "https://localhost:3000",
+  "deployOnly": false,
+  "needleEditor": null,
+  "developmentBuild": false,
+  "generator": "Unity 6000.0.33f1, Needle Engine Integration @4.1.0-alpha.9",
+  "gzip": false,
+  "allowHotReload": true,
+  "license": {
+    "team": "org_hi142p7ahqok"
+  },
+  "facebookInstantGames": null,
+  "useRapier": true
+}
