@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Juego Drag & Drop</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Overlay con la imagen de bienvenida -->
+  <div id="intro-overlay">
+    <div id="intro-image-container"> 
+      <img id="intro-image" src="Imanges/POP%20UP%20INICIAL.png" alt="Pantalla de Bienvenida" />
+      <button id="close-btn">✕</button>
+    </div>
+  </div>
+
+  <!-- Contenedor de la cámara -->
+  <div id="camera-container">
+    <video id="camera-stream" autoplay playsinline></video>
+  </div>
+
+  <!-- Contenedor del juego (drag & drop) -->
+  <div id="game-container">
+    <!-- 6 objetos arrastrables -->
+    <div class="draggable" id="item1" data-target="drop1">
+      <img src="Imanges/LECHE-MATERNA.png" alt="objeto 1" />
+    </div>
+    <div class="draggable" id="item2" data-target="drop2">
+      <img src="Imanges/COMPONENTES-BIOACTIVOS.png" alt="objeto 2" />
+    </div>
+    <div class="draggable" id="item3" data-target="drop3">
+      <img src="Imanges/GRASA-DE-LECHE.png" alt="objeto 3" />
+    </div>
+    <div class="draggable" id="item4" data-target="drop4">
+      <img src="Imanges/MFGM.png" alt="objeto 4" />
+    </div>
+    <div class="draggable" id="item5" data-target="drop5">
+      <img src="Imanges/cerebro.png" alt="objeto 5" />
+    </div>
+    <div class="draggable" id="item6" data-target="drop6">
+      <img src="Imanges/INMUNIDAD.png" alt="objeto 6" />
+    </div>
+
+    <!-- Ejemplo de un popup o texto en pantalla -->
+    <img
+      id="message-item1"
+      src="Imanges/POP%20UP%20LECHE%20MATERNA.png"
+      alt="Mensaje item1"
+      style="position:relative; top:150px; left:325px; display:inline;"
+    />
+    <img
+      id="text-item1"
+      src="Imanges/TEXTO%20LECHE%20MAATERNA%201.png"
+      alt="Texto item1"
+      style="position:absolute; top:150px; left:800px; display:inline;"
+    />
+  </div>
+
+  <!-- Barra inferior (DETRÁS DE LOS DRAGGABLES) -->
+  <div id="bottom-bar-container">
+    <div id="bar-wrapper">
+      <img id="bar-image" src="Imanges/INTERFACE%201%20copia.png" alt="Barra inferior" />
+      <!-- Zonas de drop -->
+      <div class="dropzone" id="drop1" style="left: 50px; top: 15px;"></div>
+      <div class="dropzone" id="drop2" style="left: 125px; top: 15px;"></div>
+      <div class="dropzone" id="drop3" style="left: 205px; top: 15px;"></div>
+      <div class="dropzone" id="drop4" style="left: 285px; top: 15px;"></div>
+      <div class="dropzone" id="drop5" style="left: 360px; top: 15px;"></div>
+      <div class="dropzone" id="drop6" style="left: 440px; top: 15px;"></div>
+    </div>
+  </div>
+
+  
+  <div id="checks-container">
+    <!-- Palomitas -->
+    <img 
+      id="check-item1" 
+      src="Imanges/palomita.png" 
+      alt="Palomita item1" 
+      style="position:absolute; top:840px; left:185px; display:none;"
+    />
+    <img 
+      id="check-item2" 
+      src="Imanges/palomita.png" 
+      alt="Palomita item2" 
+      style="position:absolute; top:840px; left:265px; display:none;"
+    />
+    <img 
+      id="check-item3" 
+      src="Imanges/palomita.png" 
+      alt="Palomita item3" 
+      style="position:absolute; top:840px; left:340px; display:none;"
+    />
+    <img 
+      id="check-item4" 
+      src="Imanges/palomita.png" 
+      alt="Palomita item4" 
+      style="position:absolute; top:840px; left: 420px; display:none;"
+    />
+    <img 
+      id="check-item5" 
+      src="Imanges/palomita.png" 
+      alt="Palomita item5" 
+      style="position:absolute; top:840px; left:495px; display:none;"
+    />
+    <img 
+      id="check-item6" 
+      src="Imanges/palomita.png" 
+      alt="Palomita item6" 
+      style="position:absolute; top:840px; left:575px; display:none;"
+    />
+  </div>
+
+  <!-- Lógica del juego -->
+  <script src="script.js"></script>
+</body>
+</html>
