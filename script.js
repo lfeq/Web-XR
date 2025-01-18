@@ -15,10 +15,21 @@ function closeIntro() {
 
 /*******************************************
  * startCamera: getUserMedia
+ * -> Preferir la cámara trasera (facingMode: environment)
  ********************************************/
 async function startCamera() {
   try {
-    const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+    const constraints = {
+      video: {
+        facingMode: { ideal: 'environment' } 
+        /* 
+          Si quieres forzar al 100% la cámara trasera (y fallar si no existe), usa:
+          facingMode: { exact: 'environment' }
+        */
+      }
+    };
+
+    const stream = await navigator.mediaDevices.getUserMedia(constraints);
     const video = document.getElementById('camera-stream');
     video.srcObject = stream;
   } catch (err) {
@@ -52,13 +63,12 @@ function placeObjectsRandomly() {
   
   draggables.forEach(el => {
     // Calculamos la posición random en px
-    const randomTopPx = Math.random() * Math.max(0, limitBottom - 100); 
-    // “100” es un margen de seguridad
+    const randomTopPx = Math.random() * Math.max(0, limitBottom - 100);
     const randomLeftPx = Math.random() * (window.innerWidth - 100);
 
     // Convertimos a %
     const topPct  = (randomTopPx / window.innerHeight) * 100;
-    const leftPct = (randomLeftPx / window.innerWidth) * 100;
+    const leftPct = (randomLeftPx / window.innerWidth)  * 100;
 
     // Asignamos
     el.style.top  = topPct + '%';
@@ -107,7 +117,7 @@ function initDragAndDrop() {
     const x = e.pageX - offsetX;
     const y = e.pageY - offsetY;
 
-    const leftPct = (x / window.innerWidth)  * 100;
+    const leftPct = (x / window.innerWidth) * 100;
     const topPct  = (y / window.innerHeight) * 100;
 
     draggedElement.style.left = leftPct + '%';
@@ -144,7 +154,7 @@ function initDragAndDrop() {
     const x = touch.clientX - offsetX;
     const y = touch.clientY - offsetY;
 
-    const leftPct = (x / window.innerWidth)  * 100;
+    const leftPct = (x / window.innerWidth) * 100;
     const topPct  = (y / window.innerHeight) * 100;
 
     draggedElement.style.left = leftPct + '%';
@@ -206,7 +216,7 @@ function initDragAndDrop() {
     const finalX = centerX - elRect.width / 2;
     const finalY = centerY - elRect.height / 2;
 
-    const leftPct = (finalX / window.innerWidth)  * 100;
+    const leftPct = (finalX / window.innerWidth) * 100;
     const topPct  = (finalY / window.innerHeight) * 100;
 
     element.style.left = leftPct + '%';
