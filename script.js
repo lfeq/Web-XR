@@ -198,10 +198,18 @@ function initDragAndDrop() {
         foundZone.classList.add('wrong');
         foundZone.classList.remove('correct');
         revertPosition(draggedElement);
+        // Mensaje (se oculta luego de 5s)
+        const msg = document.getElementById(`message-error`);
+        if (msg) {
+          msg.style.display = 'inline';
+          setTimeout(() => {
+            msg.style.display = 'none';
+          }, 5000);
+        }
       }
     } else {
       // No cayó en ninguna zona
-      revertPosition(draggedElement);
+      // revertPosition(draggedElement);
     }
   }
 
